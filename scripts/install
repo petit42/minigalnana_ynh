@@ -16,7 +16,7 @@ sudo mkdir -p $final_path
 sudo cp -a ../sources/minigalnano $final_path
 
 # Manage nginx conf
-sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d
+sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/gallery
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service php5-fpm restart
