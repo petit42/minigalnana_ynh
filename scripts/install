@@ -13,54 +13,8 @@ fi
 # Copy files to the right place
 final_path=/var/www/minigalnano
 sudo mkdir -p $final_path
-sudo cp -a ../sources/* $final_path
-sudo cp ../conf/main.inc.php $final_path/config/
-sudo cp ../conf/main.inc.php $final_path/config/defaults.inc.php
-sudo cp ../conf/db.inc.php $final_path/config/
-sudo mv $final_path/plugins/managesieve/config.inc.php.dist $final_path/plugins/managesieve/config.inc.php
+sudo cp -a ../sources/minigalnano $final_path
 
-# Change variables in Roundcube configuration
-sudo sed -i "s/rcmail-ynhDESkeyTOchange/$deskey/g" $final_path/config/main.inc.php
-sudo sed -i "s/yunouser/$db_user/g" $final_path/config/db.inc.php
-sudo sed -i "s/yunopass/$db_pwd/g" $final_path/config/db.inc.php
-sudo sed -i "s/yunobase/$db_user/g" $final_path/config/db.inc.php
-
-# Install rcmcarddav if baikal is detected
-sudo yunohost app list -f baikal --json | grep '"installed": true'
-if [ "$?" -eq 0 ]; then
-  echo "Detected Baikal"
-
-  caldavdomain=$(sudo yunohost app setting baikal domain)
-  caldavpath=$(sudo yunohost app setting baikal path)
-  caldavpath=${caldavpath%/}
-
-  sed -i "s@yuno_baikal_domain@$caldavdomain@g" ../conf/rcmcarddav.config.inc.php
-  sed -i "s@yuno_baikal_path@$caldavpath@g" ../conf/rcmcarddav.config.inc.php
-  sudo cp ../conf/rcmcarddav.config.inc.php $final_path/plugins/carddav/config.inc.php
-
-  sudo sed -i "s@yuno_enable_carddav@True@g" $final_path/config/main.inc.php
-
-  mysql -u $db_user -p$db_pwd $db_user < ../sources/plugins/carddav/dbinit/mysql-drop.sql
-  mysql -u $db_user -p$db_pwd $db_user < ../sources/plugins/carddav/dbinit/mysql.sql
-else
-  mysql -u $db_user -p$db_pwd $db_user < ../sources/plugins/carddav/dbinit/mysql-drop.sql
-  sudo sed -i "s@yuno_enable_carddav@False@g" $final_path/config/main.inc.php
-fi
-
-# Set permissions to roundcube directory
-sudo mkdir -p $final_path/logs
-sudo chown -R www-data: $final_path
-
-# Modify Nginx configuration file and copy it to Nginx conf directory
-sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
-sed -i "s@ALIASTOCHANGE@$final_path/@g" ../conf/nginx.conf
-sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/roundcube.conf
-
-sed -i "s@NAMETOCHANGE@roundcube@g" ../conf/php-fpm.conf
-finalphpconf=/etc/php5/fpm/pool.d/roundcube.conf
-sudo cp ../conf/php-fpm.conf $finalphpconf
-sudo chown root: $finalphpconf
-sudo chmod 644 $finalphpconf
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service php5-fpm restart
