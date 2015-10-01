@@ -11,9 +11,9 @@ if [[ ! $? -eq 0 ]]; then
 fi
 
 # Copy files to the right place
-final_path=/var/www/minigalnano
+final_path=/var/www$path
 sudo mkdir -p $final_path
-sudo cp -a ../sources/minigalnano $final_path
+sudo cp -a ../sources/minigalnano.source $final_path
 
 # Manage nginx conf
 sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/gallery
