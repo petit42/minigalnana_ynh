@@ -6,7 +6,7 @@ path=$2
 
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a gallery
-if [[ ! $? -eq 0 ]]; then
+if [ ! $? -eq 0 ]; then
     exit 1
 fi
 
@@ -16,8 +16,8 @@ sudo mkdir -p $final_path
 sudo cp -a ../sources/minigalnano.sources/* $final_path
 
 # Manage nginx conf
-sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$path.conf
-sudo sed 's|T<PL:PATHTOCHANGE>|$path|g' -i /etc/nginx/conf.d/$domain$path 
+sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d$path.conf
+sudo sed "s|<TPL:PATHTOCHANGE>|$path|g" -i /etc/nginx/conf.d/$domain.d$path.conf 
 
 
 
