@@ -25,19 +25,19 @@ fi
 # Copy files to the right place
 final_path=/var/www/$app_name
 sudo mkdir -p $final_path
-sudo cp -a ../sources/minigalnano.sources/* $final_path
+sudo install -b -o root -g root -m 0644 ../sources/minigalnano.sources/* $final_path
 
 # Manage nginx conf
-sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app_name.conf
+sudo install -b -o root -g root -m 0644 ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app_name.conf
 sudo sed "s|<TPL:PATHTOCHANGE>|$path|g" -i /etc/nginx/conf.d/$domain.d/$app_name.conf 
 sudo sed "s|<TPL:NAMETOCHANGE>|$app_name|g" -i /etc/nginx/conf.d/$domain.d/$app_name.conf 
 
 # Manage php-fpm
 sudo install -b -o root -g root -m 0644 ../conf/phpfpm_minigalnano.conf /etc/php5/fpm/pool.d/$app_name.conf
-sudo sed "s|<TPL:PHP_NAME>|$app_name_admin|g" -i /etc/php5/fpm/pool.d/$app_name.conf
+sudo sed "s|<TPL:PHP_NAME>|${app_name}_admin|g" -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed 's|<TPL:PHP_USER>|admin|g' -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed 's|<TPL:PHP_GROUP>|admins|g' -i /etc/php5/fpm/pool.d/$app_name.conf
-sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/$app_name_admin/|g" -i /etc/php5/fpm/pool.d/$app_name.conf
+sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/{$app_name}_admin/|g" -i /etc/php5/fpm/pool.d/$app_name.conf
 
 # Set default inits
 sudo systemctl enable php5-fpm
