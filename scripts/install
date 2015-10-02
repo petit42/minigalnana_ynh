@@ -4,20 +4,21 @@
 domain=$1
 path=$2
 
+app_name="minigalnano"
 # Check domain/path availability
-sudo yunohost app checkurl $domain$path -a minigalnano
+sudo yunohost app checkurl $domain$path -a $app_name
 if [ ! $? -eq 0 ]; then
     exit 1
 fi
 
 # Copy files to the right place
-final_path=/var/www/minigalnano
+final_path=/var/www/$app_name
 sudo mkdir -p $final_path
 sudo cp -a ../sources/minigalnano.sources/* $final_path
 
 # Manage nginx conf
-sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d$path.conf
-sudo sed "s|<TPL:PATHTOCHANGE>|$path|g" -i /etc/nginx/conf.d/$domain.d$path.conf 
+sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d$app_name.conf
+sudo sed "s|<TPL:PATHTOCHANGE>|$path|g" -i /etc/nginx/conf.d/$domain.d$app_name.conf 
 
 
 # Reload Nginx and regenerate SSOwat conf
