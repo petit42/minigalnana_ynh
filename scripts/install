@@ -23,8 +23,8 @@ if [ $? -ne 0 ]; then
 fi
 
 # Copy files to the right place
-final_path=/var/www/$app_name/photos
-sudo mkdir -p $final_path
+final_path=/var/www/$app_name
+sudo mkdir -p $final_path/photos
 sudo install -b -o root -g root -m 0644 ../sources/minigalnano.sources/* $final_path
 sudo install -b -o root -g root -m 0644 ../conf/example.jpg $final_path/photos/
 
