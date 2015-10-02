@@ -13,10 +13,14 @@ fi
 # Copy files to the right place
 final_path=/var/www$path
 sudo mkdir -p $final_path
-sudo cp -a ../sources/minigalnano.source $final_path
+sudo cp -a ../sources/minigalnano.sources/* $final_path
 
 # Manage nginx conf
-sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/gallery
+sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$path.conf
+sudo sed 's|T<PL:PATHTOCHANGE>|$path|g' -i /etc/nginx/conf.d/$domain$path 
+
+
+
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service php5-fpm restart
