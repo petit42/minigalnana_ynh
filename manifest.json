@@ -3,7 +3,7 @@
     "id": "minigalnano",
     "description": {
         "en": "Open Source Gallery software",
-        "fr": "Gallery Open Source"
+        "fr": "Gallery Open Source "
     },
     "url": "https://github.com/petit42/minigalnano_ynh https://github.com/sebsauvage/MinigalNano",
     "maintainer": {
