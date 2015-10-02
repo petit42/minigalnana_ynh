@@ -17,7 +17,7 @@ sudo mkdir -p $final_path
 sudo cp -a ../sources/minigalnano.sources/* $final_path
 
 # Manage nginx conf
-sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d$app_name.conf
+sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app_name.conf
 sudo sed "s|<TPL:PATHTOCHANGE>|$path|g" -i /etc/nginx/conf.d/$domain.d$app_name.conf 
 
 
