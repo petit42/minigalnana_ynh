@@ -11,15 +11,13 @@ if [ ! $? -eq 0 ]; then
 fi
 
 # Copy files to the right place
-final_path=/var/www$path
+final_path=/var/www/minigalnano
 sudo mkdir -p $final_path
 sudo cp -a ../sources/minigalnano.sources/* $final_path
 
 # Manage nginx conf
 sudo cp -a ../conf/nginx.conf /etc/nginx/conf.d/$domain.d$path.conf
 sudo sed "s|<TPL:PATHTOCHANGE>|$path|g" -i /etc/nginx/conf.d/$domain.d$path.conf 
-
-
 
 
 # Reload Nginx and regenerate SSOwat conf
