@@ -37,7 +37,7 @@ sudo install -b -o root -g root -m 0644 ../conf/phpfpm_minigalnano.conf /etc/php
 sudo sed "s|<TPL:PHP_NAME>|${app_name}_admin|g" -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed 's|<TPL:PHP_USER>|admin|g' -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed 's|<TPL:PHP_GROUP>|admins|g' -i /etc/php5/fpm/pool.d/$app_name.conf
-sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/${$app_name}_admin/|g" -i /etc/php5/fpm/pool.d/$app_name.conf
+sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/${app_name}_admin/|g" -i /etc/php5/fpm/pool.d/$app_name.conf
 
 # Set default inits
 sudo systemctl enable php5-fpm
