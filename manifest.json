@@ -37,7 +37,7 @@
                 "type": "title",
                 "ask": {
                     "en": "Choose a name for your gallery",
-                    "fr": "Choisissez un nom pour votre galerie"
+                    "fr": "Choisissez un nom pour votre galerie",
                 },
                 "example": "Your personnal gallery",
                 "default": "Votre galerie personnelle"
