@@ -3,6 +3,9 @@
 # Retrieve arguments
 domain=$1
 path=$2
+title=$3
+
+sudo yunohost app setting nomapp title -v $title 
 
 app_name="minigalnano"
 # Check domain/path availability
@@ -41,6 +44,9 @@ sudo sed "s|<TPL:PHP_NAME>|${app_name}_admin|g" -i /etc/php5/fpm/pool.d/$app_nam
 sudo sed 's|<TPL:PHP_USER>|admin|g' -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed 's|<TPL:PHP_GROUP>|admins|g' -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/${app_name}/|g" -i /etc/php5/fpm/pool.d/$app_name.conf
+
+# Configure MinigalNano
+sudo sed "s|\$title = \"Your Own MiniGal Nano\"|$title = \"$title\"|"
 
 # Set default inits
 sudo systemctl enable php5-fpm
