@@ -32,6 +32,16 @@
                 "example": "/gallery",
                 "default": "/gallery"
             }
+	            {
+                "name": "title",
+                "ask": {
+                    "en": "Choose a name for your gallery",
+                    "fr": "Choisissez un nom pour votre galerie"
+                },
+                "example": "Your personnal gallery",
+                "default": "Your personnal gallery"
+            }
+ 
 		  ]
     }
 }
