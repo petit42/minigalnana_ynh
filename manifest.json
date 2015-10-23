@@ -15,7 +15,7 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
+                "type": "domain"
                 "ask": {
                     "en": "Choose a domain for MinigalNano",
                     "fr": "Choisissez un domaine pour MinigalNano"
@@ -24,7 +24,7 @@
             },
             {
                 "name": "path",
-                "type": "path",
+                "type": "path"
                 "ask": {
                     "en": "Choose a path for MinigalNano",
                     "fr": "Choisissez un chemin pour MinagalNano"
