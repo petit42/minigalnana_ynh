@@ -34,6 +34,7 @@
             }
 	            {
                 "name": "title",
+                "type": "title",
                 "ask": {
                     "en": "Choose a name for your gallery",
                     "fr": "Choisissez un nom pour votre galerie"
