@@ -31,11 +31,15 @@
         "example": "/gallery",
         "default": "/gallery"
       }
+		{
 		  "name": "name",
 		  "ask": {
 				"en": "Choose the name for MinigalNano gallery",
 				"fr": "Choisissez le nom pour votre galerie MinigalNano" 
-		  }
+		  },
+			"example": "My Own gallery",
+			"default": "My own gallery"
+		}
     ]
   }
 }
