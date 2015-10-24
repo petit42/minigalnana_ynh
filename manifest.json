@@ -18,7 +18,7 @@
         "name": "domain",
         "ask": {
             "en": "Choose a domain for MinigalNano Gallery",
-            "fr": "Choisissez un domaine pour votre galerie MinigalNano""
+            "fr": "Choisissez un domaine pour votre galerie MinigalNano"
         },
         "example": "domain.org"
       },
