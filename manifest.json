@@ -17,20 +17,25 @@
       {
         "name": "domain",
         "ask": {
-            "en": "Choose a domain for MinigalNano",
-            "fr": "Choisissez un domaine pour MinigalNano"
+            "en": "Choose a domain for MinigalNano Gallery",
+            "fr": "Choisissez un domaine pour votre galerie MinigalNano""
         },
         "example": "domain.org"
       },
       {
         "name": "path",
         "ask": {
-            "en": "Choose a path for MinagalNano",
-            "fr": "Choissez un chemin pour MinigalNano"
+            "en": "Choose a path for MinagalNano gallery",
+            "fr": "Choisissez un chemin pour votre galerie MinigalNano"
         },
         "example": "/gallery",
         "default": "/gallery"
       }
+		  "name": "name",
+		  "ask": {
+				"en": "Choose the name for MinigalNano gallery",
+				"fr": "Choisissez le nom pour votre galerie MinigalNano" 
+		  }
     ]
   }
 }
