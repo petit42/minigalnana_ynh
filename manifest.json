@@ -34,11 +34,10 @@
 		{
 		  "name": "name",
 		  "ask": {
-				"en": "Choose the name for MinigalNano gallery",
+				"en": "Choose the name for your MinigalNano gallery",
 				"fr": "Choisissez le nom pour votre galerie MinigalNano" 
 		  },
-			"example": "My Own gallery",
-			"default": "My own gallery"
+			"example": "My Own Gallery"
 		}
     ]
   }
