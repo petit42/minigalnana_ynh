@@ -32,7 +32,7 @@
         "default": "/gallery"
       }
 		{
-		  "name": "name",
+		  "name": "opt_name",
 		  "ask": {
 				"en": "Choose the name for your MinigalNano gallery",
 				"fr": "Choisissez le nom pour votre galerie MinigalNano" 
