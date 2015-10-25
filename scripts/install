@@ -64,6 +64,7 @@ sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/${app_name}/|g" -i /etc/php5/fpm/pool.
 
 # Configure MinigalNano
 sudo sed "s|\$title = \"Your Own MiniGal Nano\"|\$title = \"$title\"|"
+echo ""sed \"s|\$title = \"Your Own MiniGal Nano\"|\$title = \"$title\"|\"" >/tmp/debug
 
 # Set default inits
 sudo systemctl enable php5-fpm
