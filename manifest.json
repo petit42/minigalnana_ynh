@@ -32,10 +32,10 @@
         "default": "/gallery"
       },
 		{
-		  "name": "opt_name",
+		  "name": "opt_title",
 		  "ask": {
-				"en": "Choose the name for your MinigalNano gallery",
-				"fr": "Choisissez le nom pour votre galerie MinigalNano" 
+				"en": "Choose the title name for your MinigalNano gallery",
+				"fr": "Choisissez le titre pour votre galerie MinigalNano" 
 		  },
 			"example": "My Own Gallery"
 		}
