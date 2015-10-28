@@ -63,7 +63,7 @@ sudo sed 's|<TPL:PHP_GROUP>|admins|g' -i /etc/php5/fpm/pool.d/$app_name.conf
 sudo sed "s|<TPL:NGINX_REALPATH>|/var/www/${app_name}/|g" -i /etc/php5/fpm/pool.d/$app_name.conf
 
 # Configure MinigalNano
-sudo sed "s|Your Own MiniGal Nano|$title|" $final_path/config.php
+sudo sed -i "s|Your Own MiniGal Nano|$title|" $final_path/config.php
 echo "$final_path/config.php" > /tmp/debug
 
 # Set default inits
